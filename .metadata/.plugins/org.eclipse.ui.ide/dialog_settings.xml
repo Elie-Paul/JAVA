@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="D:\Documents\2_annees\STIC_2\JAVA second Semestre\CoursFx"/>
+		<item value="D:\Documents\2_annees\STIC_2\JAVA second Semestre\Ges_Scolarite"/>
+	</list>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="D:\Documents\2_annees\STIC_2\JAVA second Semestre\CoursFx"/>
+			<item value="D:\Documents\3_Annee\Java_2\JavaFX\samaneFX"/>
+			<item value="D:\Documents\3_Annee\Java_2\samaneclient"/>
+			<item value="D:\Documents\3_Annee\Java_2\samaneserver"/>
+			<item value="D:\Documents\3_Annee\Java_2\JavaFX\tutohibernate"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+</section>

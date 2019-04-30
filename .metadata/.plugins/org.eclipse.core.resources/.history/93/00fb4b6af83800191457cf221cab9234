@@ -1,0 +1,60 @@
+package cours.java.stic3.service;
+
+import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+
+import cours.java.stic3.model.Actor;
+
+public class ActorImpl extends UnicastRemoteObject implements IActor {
+
+	public ActorImpl() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Boolean Add(Actor actor) throws RemoteException {
+		Session session = Utilitaire.buildSessionFactory().openSession();
+		session.beginTransaction();
+		session.save(actor);
+		session.getTransaction().commit();
+		return true;
+	}
+
+	public Object AddObject(Object obj) throws RemoteException {
+		// TODO Auto-generated method stub
+		Session session = Utilitaire.buildSessionFactory().openSession();
+		session.beginTransaction();
+		session.save(obj);
+		session.getTransaction().commit();
+		return obj;
+	}
+
+	public Actor FindByTitle(String arg0) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Actor> ListActor() throws RemoteException {
+		Session session = Utilitaire.buildSessionFactory().openSession();
+		List<Actor> actors = session.createQuery("SELECT a FROM Actor a").list();
+		return actors;
+	}
+
+	@Override
+	public Boolean InsertOrUpdateObject(Object arg0) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object getObject(Class arg0, Serializable arg1) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

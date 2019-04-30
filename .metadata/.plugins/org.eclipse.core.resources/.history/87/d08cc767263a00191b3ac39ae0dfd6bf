@@ -1,0 +1,19 @@
+package cours.java.stic3.service;
+
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
+
+
+public class ActorImpl extends UnicastRemoteObject {
+
+	protected ActorImpl() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+
+	
+
+}

@@ -1,0 +1,127 @@
+package stic3.sn.ui;
+
+import java.net.URL;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.util.List;
+import java.util.Optional;
+import java.util.ResourceBundle;
+
+import cours.java.stic3.model.Film;
+import cours.java.stic3.model.Staff;
+import cours.java.stic3.service.IActor;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import stic3.sn.LoadView;
+
+public class CustomerMainController implements Initializable {
+
+    @FXML
+    private Button btnFilm;
+
+    @FXML
+    private Button btnLocat;
+
+    @FXML
+    private Button btnPay;
+
+    @FXML
+    private Button btnLogout;
+    
+    @FXML
+    private Button btnChange;
+
+    @FXML
+    private Pane paneContent;
+
+    @FXML
+    private Pane panTitle;
+    
+    @FXML
+    private ComboBox<Film> comboFilm;
+
+    @FXML
+    private TableView<Film> table;
+    
+    @FXML
+    private TableColumn<Film, String> title;
+
+    @FXML
+    private TableColumn<Film, String> desc;
+
+    @FXML
+    private TableColumn<Film, Short> length;
+
+    @FXML
+    private TableColumn<Film, String> special;
+    
+    private ObservableList<Film> filmsTable;
+    private ObservableList<Film> filmsCombo;
+
+    @FXML
+    void onClick(ActionEvent event) {
+    	if(event.getSource()==btnLogout) {
+    		Alert dialogC = new Alert(AlertType.CONFIRMATION);
+    		dialogC.setTitle("Confimation");
+    		dialogC.setHeaderText(null);
+    		dialogC.setContentText("Deconnection ?");
+    		Optional<ButtonType> answer = dialogC.showAndWait();
+    		if (answer.get() == ButtonType.OK) {
+    			LoadView.showView("Connexion", "Login.fxml", 1);
+    		}
+    		else {
+    			LoadView.showView("Menu principal", "CustomerMain.fxml", 1);
+    		}
+    	}
+    }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		Registry registry;
+		filmsTable = FXCollections.observableArrayList();
+		filmsCombo = FXCollections.observableArrayList();
+		try {
+			registry = LocateRegistry.getRegistry("localhost",1004);
+			IActor iactor = (IActor)registry.lookup("ActorDistant");
+			List<Object> obj = iactor.ListObject("Film");
+			for(Object a : obj) {
+				filmsTable.add((Film)a);
+			}
+			title.setCellValueFactory(new PropertyValueFactory<>("title"));
+			desc.setCellValueFactory(new PropertyValueFactory<>("description"));
+			length.setCellValueFactory(new PropertyValueFactory<>("length"));
+			special.setCellValueFactory(new PropertyValueFactory<>("specialFeatures"));
+			table.setItems(null);
+			table.setItems(filmsTable);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		try {
+			registry = LocateRegistry.getRegistry("localhost",1004);
+			IActor iactor = (IActor)registry.lookup("ActorDistant");
+			List<Object> obj = iactor.ListObject("Film");
+			for(Object a : obj) {
+				filmsCombo.add((Film)a);
+			}
+			comboFilm.setItems(filmsCombo);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+	}
+
+}

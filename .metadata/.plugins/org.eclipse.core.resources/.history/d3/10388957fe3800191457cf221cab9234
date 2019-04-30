@@ -1,0 +1,44 @@
+package cours.java.stic3.service;
+
+import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+
+import cours.java.stic3.model.Actor;
+
+public class ActorImpl extends UnicastRemoteObject implements IActor {
+
+	protected ActorImpl() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public Boolean Add(Actor arg0) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean InsertOrUpdateObject(Object arg0) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Actor> ListActor() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object getObject(Class arg0, Serializable arg1) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

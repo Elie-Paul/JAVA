@@ -1,0 +1,65 @@
+package stic3.sn.ui;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import cours.java.stic3.model.Actor;
+import cours.java.stic3.model.Category;
+import cours.java.stic3.model.Store;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+
+public class GestionFilmController implements Initializable{
+
+    @FXML
+    private ComboBox<Actor> comboAct;
+
+    @FXML
+    private ComboBox<Category> comboCat;
+
+    @FXML
+    private ComboBox<Store> comboSto;
+
+    @FXML
+    private TableView<Actor> tableActor;
+
+    @FXML
+    private TableColumn<?, ?> col_actor;
+
+    @FXML
+    private TableColumn<?, ?> col_film_actor;
+
+    @FXML
+    private TableView<Category> tableActor1;
+
+    @FXML
+    private TableColumn<?, ?> col_cat;
+
+    @FXML
+    private TableColumn<?, ?> col_film_cat;
+
+    @FXML
+    private TableView<Store> tableStore;
+
+    @FXML
+    private TableColumn<?, ?> col_film_store;
+
+    @FXML
+    private TableColumn<?, ?> col_store;
+
+    @FXML
+    void onClick(ActionEvent event) {
+
+    }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

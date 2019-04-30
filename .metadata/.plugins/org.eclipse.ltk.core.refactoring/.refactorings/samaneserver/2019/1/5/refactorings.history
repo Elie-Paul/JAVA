@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;cours.java.stic3.service&apos; to &apos;CinemaServer/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;samaneserver&apos;&#x0D;&#x0A;- Destination element: &apos;CinemaServer/src/main/java&apos;&#x0D;&#x0A;- Original element: &apos;samaneserver/src/main/java/cours.java.stic3.service&apos;" description="Copy package" destination="=CinemaServer/src\/main\/java" element1="/src\/main\/java&lt;cours.java.stic3.service" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1548680035936" version="1.0"/>
+</session>

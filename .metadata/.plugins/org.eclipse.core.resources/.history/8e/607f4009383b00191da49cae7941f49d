@@ -1,0 +1,25 @@
+package stic3.sn.ui;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+
+public class UpdateCategory {
+
+    @FXML
+    private ComboBox<?> combCat;
+
+    @FXML
+    private TextField name;
+
+    @FXML
+    private Button btnUpdate;
+
+    @FXML
+    void onClick(ActionEvent event) {
+
+    }
+
+}

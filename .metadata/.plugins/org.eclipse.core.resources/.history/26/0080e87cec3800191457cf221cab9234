@@ -1,0 +1,21 @@
+package cours.java.stic3.service;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.util.List;
+
+import cours.java.stic3.model.Actor;
+
+public interface IActor extends Remote {
+	
+       Boolean Add(Actor actor) throws RemoteException;
+
+       List<Actor> ListActor() throws RemoteException;
+       
+       Actor FindByTitle(String a) throws RemoteException;
+       
+       Boolean InsertOrUpdateObject(Object obj) throws RemoteException;
+       
+       //int Modify(int id, string n, string n1);
+
+}

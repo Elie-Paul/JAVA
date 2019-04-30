@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FormulaireController">
+   <children>
+      <Label layoutX="14.0" layoutY="36.0" prefHeight="24.0" prefWidth="38.0" text="\@Ip" />
+      <TextField fx:id="ip" layoutX="45.0" layoutY="36.0" prefHeight="25.0" prefWidth="70.0" />
+      <TextField fx:id="port" layoutX="198.0" layoutY="36.0" prefHeight="25.0" prefWidth="70.0" />
+      <Label layoutX="144.0" layoutY="36.0" prefHeight="24.0" prefWidth="38.0" text="Port" />
+      <TextField fx:id="pseudo" layoutX="356.0" layoutY="36.0" prefHeight="25.0" prefWidth="70.0" />
+      <Label layoutX="288.0" layoutY="37.0" prefHeight="24.0" prefWidth="52.0" text="Pseudo" />
+      <Button fx:id="con" defaultButton="true" layoutX="465.0" layoutY="37.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="130.0" text="Connexion" textFill="#252323" AnchorPane.bottomAnchor="366.0" AnchorPane.leftAnchor="465.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="37.0">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="17.0" layoutY="94.0" onDragDetected="#connexionClick" prefHeight="25.0" prefWidth="70.0" text="Messages" />
+      <Label layoutX="465.0" layoutY="94.0" prefHeight="25.0" prefWidth="70.0" text="Utilisateur" />
+      <Label layoutX="25.0" layoutY="337.0" prefHeight="25.0" prefWidth="70.0" text="Message" />
+      <ListView fx:id="user" layoutX="444.0" layoutY="118.0" prefHeight="219.0" prefWidth="147.0" />
+      <TextField fx:id="msg" layoutX="25.0" layoutY="362.0" prefHeight="32.0" prefWidth="282.0" />
+      <TextArea fx:id="msgs" layoutX="15.0" layoutY="119.0" prefHeight="200.0" prefWidth="282.0" />
+      <Button fx:id="env" layoutX="506.0" layoutY="362.0" mnemonicParsing="false" onAction="#envoyerClick" prefHeight="25.0" prefWidth="85.0" text="Envoyer" />
+   </children>
+</AnchorPane>

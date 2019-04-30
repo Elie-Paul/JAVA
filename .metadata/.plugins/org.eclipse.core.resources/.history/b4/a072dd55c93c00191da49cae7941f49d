@@ -1,0 +1,148 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package cours.java.stic3.model;
+
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+/**
+ *
+ * @author Elie
+ */
+@Entity
+@Table(name = "participant")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Participant.findAll", query = "SELECT p FROM Participant p")
+    , @NamedQuery(name = "Participant.findByParticipantId", query = "SELECT p FROM Participant p WHERE p.participantId = :participantId")
+    , @NamedQuery(name = "Participant.findByNumero", query = "SELECT p FROM Participant p WHERE p.numero = :numero")
+    , @NamedQuery(name = "Participant.findByNom", query = "SELECT p FROM Participant p WHERE p.nom = :nom")
+    , @NamedQuery(name = "Participant.findByPrenom", query = "SELECT p FROM Participant p WHERE p.prenom = :prenom")
+    , @NamedQuery(name = "Participant.findByTel", query = "SELECT p FROM Participant p WHERE p.tel = :tel")})
+public class Participant implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "participantId")
+    private Integer participantId;
+    @Basic(optional = false)
+    @Column(name = "numero")
+    private int numero;
+    @Basic(optional = false)
+    @Column(name = "nom")
+    private String nom;
+    @Basic(optional = false)
+    @Column(name = "prenom")
+    private String prenom;
+    @Column(name = "tel")
+    private String tel;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "participantId")
+    private List<Participation> participationList;
+
+    public Participant() {
+    }
+
+    public Participant(Integer participantId) {
+        this.participantId = participantId;
+    }
+
+    public Participant(Integer participantId, int numero, String nom, String prenom) {
+        this.participantId = participantId;
+        this.numero = numero;
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+
+    public Integer getParticipantId() {
+        return participantId;
+    }
+
+    public void setParticipantId(Integer participantId) {
+        this.participantId = participantId;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    @XmlTransient
+    public List<Participation> getParticipationList() {
+        return participationList;
+    }
+
+    public void setParticipationList(List<Participation> participationList) {
+        this.participationList = participationList;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (participantId != null ? participantId.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Participant)) {
+            return false;
+        }
+        Participant other = (Participant) object;
+        if ((this.participantId == null && other.participantId != null) || (this.participantId != null && !this.participantId.equals(other.participantId))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "cours.java.stic3.model.Participant[ participantId=" + participantId + " ]";
+    }
+    
+}

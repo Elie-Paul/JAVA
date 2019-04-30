@@ -1,0 +1,11 @@
+package stic3.sn.test;
+
+import cours.java.stic3.model.Actor;
+import cours.java.stic3.model.Film;
+
+
+public class ActorFilmList {
+
+	private Actor actorName;
+	private Film filmName;
+}

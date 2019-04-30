@@ -1,0 +1,25 @@
+package stic3.sn.ui;
+
+import cours.java.stic3.model.Store;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+
+public class ListStoreController {
+
+    @FXML
+    private TableView<?> table;
+
+    @FXML
+    private TableColumn<Store, Short> id;
+
+    @FXML
+    private TableColumn<Store, String> name;
+
+    @FXML
+    private TableColumn<Store, Short> manager;
+
+    @FXML
+    private TableColumn<Store, Short> address;
+
+}

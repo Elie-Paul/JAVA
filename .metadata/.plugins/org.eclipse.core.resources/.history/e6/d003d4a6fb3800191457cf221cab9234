@@ -1,0 +1,73 @@
+package cours.java.stic3.service;
+
+import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+
+import cours.java.stic3.model.Actor;
+
+@SuppressWarnings("serial")
+public class ActorImpl extends UnicastRemoteObject implements IActor {
+
+	@Override
+	public ActorImpl() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public Boolean Add(Actor actor) throws RemoteException {
+		Session session = Utilitaire.buildSessionFactory().openSession();
+		session.beginTransaction();
+		session.save(actor);
+		session.getTransaction().commit();
+		return true;
+	}
+
+	public Object AddObject(Object obj) throws RemoteException {
+		// TODO Auto-generated method stub
+		Session session = Utilitaire.buildSessionFactory().openSession();
+		session.beginTransaction();
+		session.save(obj);
+		session.getTransaction().commit();
+		return obj;
+	}
+
+	public Actor FindByTitle(String arg0) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Actor> ListActor() throws RemoteException {
+		Session session = Utilitaire.buildSessionFactory().openSession();
+		@SuppressWarnings("unchecked")
+		List<Actor> actors = session.createQuery("SELECT a FROM Actor a").list();
+		return actors;
+	}
+
+	@Override
+	public Boolean InsertOrUpdateObject(Object obj) throws RemoteException {
+		// TODO Auto-generated method stub
+		Session session = Utilitaire.buildSessionFactory().openSession();
+		session.beginTransaction();
+		session.saveOrUpdate(obj);
+		session.getTransaction().commit();
+		return true;
+	}
+
+	@SuppressWarnings("rawtypes")
+	@Override
+	public Object getObject(Class Myclass, Serializable id) throws RemoteException {
+		// TODO Auto-generated method stub
+		Session session = Utilitaire.buildSessionFactory().openSession();
+		session.beginTransaction();
+		Object obj = (Object) session.get(Myclass, id);
+		return obj;
+	}
+
+}

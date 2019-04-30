@@ -1,0 +1,114 @@
+package stic3.sn.ui;
+
+import java.net.URL;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import cours.java.stic3.model.Actor;
+import cours.java.stic3.model.Category;
+import cours.java.stic3.model.Store;
+import cours.java.stic3.service.IActor;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+
+public class GestionFilmController implements Initializable{
+
+    @FXML
+    private ComboBox<Actor> comboAct;
+
+    @FXML
+    private ComboBox<Category> comboCat;
+
+    @FXML
+    private ComboBox<Store> comboSto;
+
+    @FXML
+    private TableView<Actor> tableActor;
+
+    @FXML
+    private TableColumn<?, ?> col_actor;
+
+    @FXML
+    private TableColumn<?, ?> col_film_actor;
+
+    @FXML
+    private TableView<Category> tableActor1;
+
+    @FXML
+    private TableColumn<?, ?> col_cat;
+
+    @FXML
+    private TableColumn<?, ?> col_film_cat;
+
+    @FXML
+    private TableView<Store> tableStore;
+
+    @FXML
+    private TableColumn<?, ?> col_film_store;
+
+    @FXML
+    private TableColumn<?, ?> col_store;
+    
+    private ObservableList<Actor> actors;
+    private ObservableList<Category> categories;
+    private ObservableList<Store> stores;
+    
+    @FXML
+    void onClick(ActionEvent event) {
+
+    }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		Registry registry;
+		actors = FXCollections.observableArrayList();
+		categories = FXCollections.observableArrayList();
+		stores = FXCollections.observableArrayList();
+		
+		try {
+			registry = LocateRegistry.getRegistry("localhost",1004);
+			IActor iactor = (IActor)registry.lookup("ActorDistant");
+			List<Object> objects = iactor.ListObject("Actor");
+			for(Object object: objects) {
+				actors.add((Actor)object);
+			}
+			comboAct.setItems(actors);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		try {
+			registry = LocateRegistry.getRegistry("localhost",1004);
+			IActor iactor = (IActor)registry.lookup("ActorDistant");
+			List<Object> objects = iactor.ListObject("Category");
+			for(Object object: objects) {
+				categories.add((Category)object);
+			}
+			comboCat.setItems(categories);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		try {
+			registry = LocateRegistry.getRegistry("localhost",1004);
+			IActor iactor = (IActor)registry.lookup("ActorDistant");
+			List<Object> actor = iactor.ListObject("Store");
+			for(Object object: actor) {
+				stores.add((Store)object);
+			}
+			comboSto.setItems(stores);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
+}

@@ -1,0 +1,20 @@
+package cours.java.stic3.service;
+
+import java.io.Serializable;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.util.List;
+
+import cours.java.stic3.model.Actor;
+
+public interface IActor extends Remote {
+	
+       Boolean Add(Actor actor) throws RemoteException;
+
+       List<Actor> ListActor() throws RemoteException;
+       
+       Object getObject(Class Myclass, Serializable id) throws RemoteException;
+       
+       Boolean InsertOrUpdateObject(Object obj) throws RemoteException;
+       
+}

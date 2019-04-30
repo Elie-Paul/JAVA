@@ -1,0 +1,73 @@
+package stic3.sn.ui;
+
+import java.net.URL;
+import java.rmi.registry.Registry;
+import java.util.ResourceBundle;
+
+import cours.java.stic3.model.Film;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.Pane;
+
+public class CustomerMainController implements Initializable {
+
+    @FXML
+    private Button btnFilm;
+
+    @FXML
+    private Button btnLocat;
+
+    @FXML
+    private Button btnPay;
+
+    @FXML
+    private Button btnLogout;
+
+    @FXML
+    private Pane paneContent;
+
+    @FXML
+    private Pane panTitle;
+
+    @FXML
+    private TableView<Film> table;
+    
+    @FXML
+    private TableColumn<Film, String> title;
+
+    @FXML
+    private TableColumn<Film, String> desc;
+
+    @FXML
+    private TableColumn<Film, ?> length;
+
+    @FXML
+    private TableColumn<Film, ?> special;
+    
+    private ObservableList<Film> films;
+
+    @FXML
+    void onClick(ActionEvent event) {
+
+    }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		Registry registry;
+		films = FXCollections.observableArrayList();
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+	}
+
+}

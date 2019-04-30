@@ -1,0 +1,72 @@
+package stic3.sn.ui;
+
+import java.net.URL;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import cours.java.stic3.model.Actor;
+import cours.java.stic3.model.Staff;
+import cours.java.stic3.service.IActor;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+public class LockUser implements Initializable {
+
+    @FXML
+    private Button btnEnter;
+    
+    @FXML
+    private TableView<Staff> table;
+
+    @FXML
+    private TableColumn<Staff, String> name1;
+
+    @FXML
+    private TableColumn<Staff, String> name2;
+
+    @FXML
+    private TableColumn<Staff, String> email;
+
+    @FXML
+    private TableColumn<Staff, Boolean> active;
+    
+    private ObservableList<Staff> staffs;
+
+    @FXML
+    void handleClick(ActionEvent event) {
+
+    }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		Registry registry;
+		staffs = FXCollections.observableArrayList();
+		try {
+			registry = LocateRegistry.getRegistry("localhost",1004);
+			IActor iactor = (IActor)registry.lookup("ActorDistant");
+			List<Object> obj = iactor.ListObject("Staff");
+			for(Object a : obj) {
+				staffs.add((Staff)a);
+			}
+			name1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+			name2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+			email.setCellValueFactory(new PropertyValueFactory<>("email"));
+			active.setCellValueFactory(new PropertyValueFactory<>("active"));
+			table.setItems(null);
+			table.setItems(staffs);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
+}

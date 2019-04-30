@@ -1,0 +1,39 @@
+package stic3.sn.ui;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import cours.java.stic3.model.Country;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+
+public class CityController implements Initializable {
+
+    @FXML
+    private ComboBox<Country> combCoun;
+
+    @FXML
+    private TextField name;
+
+    @FXML
+    private Button btnAdd;
+    
+    private ObservableList<Country> countries;
+
+    @FXML
+    void onClick(ActionEvent event) {
+
+    }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

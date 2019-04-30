@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="448.0" prefWidth="374.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="stic3.sn.ui.TacheController">
+   <children>
+      <Label layoutX="112.0" layoutY="14.0" text="Ajouter tache" textFill="#17ccb1">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nom" layoutX="177.0" layoutY="72.0" style="-fx-background-radius: 10px;" />
+      <TextField fx:id="daDeb" layoutX="177.0" layoutY="121.0" promptText="dd-MM-YYYY" style="-fx-background-radius: 10px;" />
+      <TextField fx:id="daFin" layoutX="177.0" layoutY="165.0" promptText="dd-MM-YYYY" style="-fx-background-radius: 10px;" />
+      <TextArea fx:id="desc" layoutX="23.0" layoutY="290.0" prefHeight="109.0" prefWidth="308.0" />
+      <ComboBox fx:id="ComboProjet" layoutX="177.0" layoutY="209.0" prefWidth="150.0" style="-fx-background-radius: 10px;" />
+      <Button fx:id="btnAdd" layoutX="215.0" layoutY="409.0" mnemonicParsing="false" onAction="#onClick" style="-fx-background-radius: 10px;" text="Enregistrer" />
+      <Label layoutX="23.0" layoutY="71.0" text="Nom" textFill="#17ccb1">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="120.0" text="Date debut" textFill="#17ccb1">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="164.0" text="Date fin" textFill="#17ccb1">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="208.0" text="Projet" textFill="#17ccb1">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="252.0" text="Description" textFill="#17ccb1">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

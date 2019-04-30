@@ -1,0 +1,27 @@
+package stic3.sn.ui;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+
+public class CategoryMainController {
+
+    @FXML
+    private Button btnAdd;
+
+    @FXML
+    private Button btnUpdate;
+
+    @FXML
+    private Button btnQuit;
+
+    @FXML
+    private Pane panConte;
+
+    @FXML
+    void onClick(ActionEvent event) {
+
+    }
+
+}

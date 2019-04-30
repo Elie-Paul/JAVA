@@ -1,0 +1,21 @@
+package stic3.sn.ui;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+
+public class AddCategoryController {
+
+    @FXML
+    private TextField name;
+
+    @FXML
+    private Button btnAdd;
+
+    @FXML
+    void addActor(ActionEvent event) {
+
+    }
+
+}
